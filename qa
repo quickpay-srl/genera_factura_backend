@@ -1,0 +1,13 @@
+server.port = 9081
+
+server.ssl.key-store=classpath:quickpay-com-bo.p12
+server.ssl.key-store-password=12345
+server.ssl.key-store-type=PKCS12
+server.ssl.client-auth=none
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/quickpay_db
+spring.datasource.username=quickpay_root
+spring.datasource.password=quickpay_root
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
