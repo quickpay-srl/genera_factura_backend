@@ -68,10 +68,11 @@ public class FacturacionElectronicaService {
                             	}
                             }
                     """;
-            String URL = "https://api.isipass.com.bo/api";
+            //String URL = "https://api.isipass.com.bo/api";
+            String URL = "https://api.quickpay.com.bo/api";
             HttpGraphQlClient graphQlClient;
             WebClient client = WebClient.builder()
-                    .baseUrl(URL).defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVMkZzZEdWa1gxOGRJQ2RRZzMlMkJQaUdPNjYzS3hCWFRUR1FQVjlrdTlLZE0lM0QiLCJhY2Nlc3NUeXBlIjoiVTJGc2RHVmtYMTlYMnYzSkQ2WWFFJTJCcFpyRWhsVUNmTVNOUmdBUnR4JTJGUmM3UUpFdWJHVEd6RyUyQnoyWUxoUWZCV1AlMkZPbGMycW5Lc1JDMnV1OU0xJTJCSGVRJTNEJTNEIiwidXNlcklkIjoiNjUwYzcxODBlZjIzMGQ3NTE4ZTJkMjhkIiwicm9sSWQiOiI2NTBjNzE4MGVmMjMwZDc1MThlMmQyODgiLCJpYXQiOjE2OTUzMTQzNTksImV4cCI6MTczNTY2MzE1OX0.UmNeL6UOUI5_3_6DJf4zsilWH6FqxRRPN2knHUbfexs")
+                    .baseUrl(URL).defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer "+cred.get().getTokenDelegado())
                     .build();
             graphQlClient = HttpGraphQlClient.builder(client).build();
 
@@ -133,10 +134,10 @@ public class FacturacionElectronicaService {
                                 }
                     """;
 
-            String URL = "https://api.isipass.com.bo/api";
+            String URL = "https://api.quickpay.com.bo/api";
             HttpGraphQlClient graphQlClient;
             WebClient client = WebClient.builder()
-                    .baseUrl(URL).defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVMkZzZEdWa1gxOGRJQ2RRZzMlMkJQaUdPNjYzS3hCWFRUR1FQVjlrdTlLZE0lM0QiLCJhY2Nlc3NUeXBlIjoiVTJGc2RHVmtYMTlYMnYzSkQ2WWFFJTJCcFpyRWhsVUNmTVNOUmdBUnR4JTJGUmM3UUpFdWJHVEd6RyUyQnoyWUxoUWZCV1AlMkZPbGMycW5Lc1JDMnV1OU0xJTJCSGVRJTNEJTNEIiwidXNlcklkIjoiNjUwYzcxODBlZjIzMGQ3NTE4ZTJkMjhkIiwicm9sSWQiOiI2NTBjNzE4MGVmMjMwZDc1MThlMmQyODgiLCJpYXQiOjE2OTUzMTQzNTksImV4cCI6MTczNTY2MzE1OX0.UmNeL6UOUI5_3_6DJf4zsilWH6FqxRRPN2knHUbfexs")
+                    .baseUrl(URL).defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVMkZzZEdWa1gxOW9ZaDNCbEU3a1lRRVJLaHo0OWxHckN4MFVmdmhVaDlVJTNEIiwiYWNjZXNzVHlwZSI6IlUyRnNkR1ZrWDElMkZITGs2RFBiaWtHVVJnaVVtM0h5bFlHa25obXBhUlFib3ZLTzljTGVoalRoTDhjNU1EbTI1NXBFMm8yQ2k0ODRwMVU5MEhnNiUyQjJlUSUzRCUzRCIsInVzZXJJZCI6IjY2NTRmYzBiNzM3NzRmMmM3ODU4NTM0ZSIsInJvbElkIjoiNjY1NGZjMGI3Mzc3NGYyYzc4NTg1MzQ5IiwiaWF0IjoxNzE2ODQ1NjAzLCJleHAiOjE3NjcyMTY4MDN9.3l3frtGPNAcB0sYSYxnXQyUuSrMU4yFibqTMihDRTn4")
                     .build();
             graphQlClient = HttpGraphQlClient.builder(client).build();
             Map resul = new HashMap();
