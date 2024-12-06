@@ -4,6 +4,7 @@ package com.genera_factura.genera_factura_backend.service;
 import com.genera_factura.genera_factura_backend.dto.ResponseFacturacionDto;
 import com.genera_factura.genera_factura_backend.dto.requestGenerarFactura.RequestGeneraFacturaDto;
 import com.genera_factura.genera_factura_backend.entity.CredencialesFacEntity;
+import com.genera_factura.genera_factura_backend.entity.LogSistemaEntity;
 import com.genera_factura.genera_factura_backend.repository.ICredencialFacRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.client.HttpGraphQlClient;
@@ -16,6 +17,10 @@ import java.util.*;
 
 @Service
 public class FacturacionElectronicaService {
+
+
+    @Autowired
+    private ILogSistemaService logSistemaService;
 
     @Autowired
     ICredencialFacRepository iCredencialFacRepository;
@@ -97,6 +102,16 @@ public class FacturacionElectronicaService {
             return response;
 
         }catch (Exception ex){
+
+            LogSistemaEntity log=new LogSistemaEntity();
+            log.setModulo("FACTURACION.CREAR_FACTURA");
+            log.setController("creaFactura");
+            log.setMensaje(ex.getMessage());
+            log.setUsuarioCreacion(1003L);
+            log.setFechaCreacion(new Date());
+            this.logSistemaService.save(log);
+
+
             System.out.println(ex.toString());
             response.status = false;
             response.message = "error: "+ex.toString();
